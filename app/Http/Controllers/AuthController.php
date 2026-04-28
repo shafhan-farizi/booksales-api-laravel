@@ -60,7 +60,7 @@ class AuthController extends Controller
         }
 
         // 3. get kredensial dari request
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only(['email', 'password']);
 
         // 4. cek isFailed
         if (!$token = auth()->guard('api')->attempt($credentials)) {
