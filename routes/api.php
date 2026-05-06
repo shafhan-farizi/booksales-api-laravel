@@ -19,13 +19,13 @@ Route::apiResource('/genres', GenreController::class)->only(['index', 'show']);
 Route::middleware(['auth:api'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::apiResource('/transactions', TransactionController::class)->only(['store', 'show', 'update']);
-    
-    
+
+
     Route::middleware(['role:admin'])->group(function () {
-        Route::apiResource('/books', BookController::class)->only(['store', 'update', 'destroy']);
-        Route::apiResource('/authors', AuthorController::class)->only(['store', 'update', 'destroy']);
-        Route::apiResource('/genres', GenreController::class)->only(['store', 'update', 'destroy']);
         Route::apiResource('/transactions', TransactionController::class)->only(['index', 'destroy']);
-        });
+    });
 });
 
+Route::apiResource('/authors', AuthorController::class)->only(['store', 'update', 'destroy']);
+Route::apiResource('/books', BookController::class)->only(['store', 'update', 'destroy']);
+Route::apiResource('/genres', GenreController::class)->only(['store', 'update', 'destroy']);
