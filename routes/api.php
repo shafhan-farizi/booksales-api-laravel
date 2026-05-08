@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AuthorController;
@@ -18,11 +17,11 @@ Route::apiResource('/genres', GenreController::class)->only(['index', 'show']);
 
 Route::middleware(['auth:api'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
-    Route::apiResource('/transactions', TransactionController::class)->only(['store', 'show', 'update']);
-
+   
+    Route::apiResource('/transactions', TransactionController::class)->only(['store', 'show']);
 
     Route::middleware(['role:admin'])->group(function () {
-        Route::apiResource('/transactions', TransactionController::class)->only(['index', 'destroy']);
+        Route::apiResource('/transactions', TransactionController::class)->only(['index', 'update', 'destroy']);
     });
 });
 

@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Book;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class BookSeeder extends Seeder
@@ -19,7 +18,7 @@ class BookSeeder extends Seeder
                 'description' => 'Petualangan seorang pemuda yang kembali ke desa kelahirannya.',
                 'price' => 40000,
                 'stock' => 15,
-                'cover_photo' => 'pulang.jpg',
+                'cover_photo' => 'pulang.jpeg',
                 'genre_id' => 1,
                 'author_id' => 1,
             ],
